@@ -24,8 +24,8 @@
         <button onclick="displayWithrawal()">Withdrawal</button>
 
         <button onclick="displayDeposit()">Deposit</button>
-/<!added change pin//
-        <button onclick="changePin()">Deposit</button>
+<!---added change pin button//-->
+        <button onclick="displayChangePin()">Change Pin</button>
        
         <button onclick="returnToMenu()">Logout</button>
 
@@ -81,6 +81,11 @@
                 this.balance = this.balance + depAmount;
                 updateATM(); 
             }
+            //change pin
+            this.displayChangePin = function(newPin){
+
+
+            }
 
         }
 
@@ -111,13 +116,21 @@
         }
 
         function displayWithrawal() {
+            //fee alert
+            //get the amount to withdraw
+            //convert the amount to a number
+            //putting it in the amount variable
+            alert("You may be charged a fee for withdrawing cash from this ATM")
             let amount = Number(prompt("How much would you like to withdrawal?", ""));
             atm.currentAccount.withdrawal(amount); 
             displayBalance(); 
+           
         }
         
         function displayDeposit() {
             let amount = Number(prompt("How much would you like to deposit?", ""));
+
+            //withdraws the money
             atm.currentAccount.deposit(amount); 
             displayBalance(); 
         }
@@ -130,6 +143,7 @@
                     atm.createAccount(pin);
                     displayMenu(); 
                 } 
+                //need to be able to create new pin here
             }
 
         function login() {
@@ -152,6 +166,14 @@
             document.getElementById("start").style.display = "none";
             document.getElementById("menu").style.display = "block";
         }
+
+        function displayChangePin(){
+            //we're going to have to have to update a pin to a specific account with a new pin...get the new pin...see if it exits...
+            //if it doesnt exist, then we need to update it inside the new pin function
+            alert("does this work???")
+
+        }
+     
     </script>
 
 </body>
