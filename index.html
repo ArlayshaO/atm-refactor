@@ -2,7 +2,7 @@
 <html>
 
 <head>
-
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -122,7 +122,13 @@
             //putting it in the amount variable
             alert("You may be charged a fee for withdrawing cash from this ATM")
             let amount = Number(prompt("How much would you like to withdrawal?", ""));
+            //withdraws the money
+            //call into the atm object
+            //access the current account property which is an object of the account
+            //access that objects withdrawal method
+            //pass the parameter "amount"
             atm.currentAccount.withdrawal(amount); 
+            //display the balance
             displayBalance(); 
            
         }
@@ -168,13 +174,43 @@
         }
 
         function displayChangePin(){
-            //we're going to have to have to update a pin to a specific account with a new pin...get the new pin...see if it exits...
-            //if it doesnt exist, then we need to update it inside the new pin function
+            //we're going to have to have to update a pin to a specific account with a new pin...get the new pin
+            //see if it exits ... call our getAccount(pin)
+            //if the account is null update the pin otherwise dont
             alert("does this work???")
+            let pin = Number(prompt("Please enter your new pin", ""));
 
         }
      
     </script>
+<br>
+<br>
+<br>
+<br>
+<br>
+    <script type="text/javascript"> 
+        var myDate = new Date(); 
+        var myDay = myDate.getDay(); 
+        
+        // Array of days. 
+        var weekday = ['Sunday', 'Monday', 'Tuesday', 
+            'Wednesday', 'Thursday', 'Friday', 'Saturday' 
+        ]; 
+        document.write("Today is : " + weekday[myDay]); 
+        document.write("<br/>"); 
+        
+        // get hour value. 
+        var hours = myDate.getHours(); 
+        var ampm = hours >= 12 ? 'PM' : 'AM'; 
+        hours = hours % 12; 
+        hours = hours ? hours : 12; 
+        var minutes = myDate.getMinutes(); 
+        minutes = minutes < 10 ? '0' + minutes : minutes; 
+        var myTime = hours + " " + ampm + " : " + minutes +  
+            " : " + myDate.getMilliseconds(); 
+        document.write("\tCurrent time is : " + myTime); 
+    </script> 
+
 
 </body>
 
