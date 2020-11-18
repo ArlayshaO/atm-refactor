@@ -42,21 +42,15 @@
 
     <script>
           alert ("WELCOME! Please Have your PIN number available to access your account.");
-        /* When the page loads get the ATM accounts out of local storage */ 
-        let atm = new Atm(); 
-        atm.accounts = JSON.parse(localStorage.getItem("atm_accts")); 
-        /* if there are no accounts, make sure we initialize with an empty array */
-        if(atm.accounts === null){
-            atm.accounts = []; 
-        
-        }
+       
 
         /*----------- the code to manipute data/ logic goes here --------*/ 
-        function Atm() {
+        class Atm {
+            constructor(){
             this.accounts = [];
             this.currentAccount = null; 
-        
-            this.createAccount = function (pin){
+            }
+            createAccount (pin){
                     let newAccount = new Account(pin);
                     this.accounts.push(newAccount);
                     this.currentAccount = newAccount; 
@@ -64,7 +58,7 @@
                     return newAccount; 
             };
 
-            this.updateAccount = function(newPin){
+            updateAccount (newPin){
                // let arrAccount = atm.getAccount(atm.currentAccount.pin);
                  //   atm.accounts[currentAcct.index].pin = pin;  
                 for (let i = 0; i < this.accounts.length; i++) {
@@ -78,7 +72,7 @@
                 }
             }
 
-            this.getAccount = function (pin){
+            getAccount (pin){
                 for (let i = 0; i < this.accounts.length; i++) {
                     if (this.accounts[i].pin === pin) {
                         //return the bank account that matches our pin
@@ -91,29 +85,37 @@
             }; 
         }
 
-        function Account(pin) { 
+        class Account { 
+            constructor (pin){
             this.pin = pin;
             this.balance = 0;
+            }
 
             //withdrawal
-            this.withdrawal = function(wdAmount){
+            withdrawal = (wdAmount){
                 this.balance = this.balance - wdAmount; 
                 updateATM(); 
             }
 
             //deposit 
-            this.deposit = function(depAmount){
+            deposit = (depAmount){
                 this.balance = this.balance + depAmount;
                 updateATM(); 
             }
             //change pin
-            this.changePin = function(newPin){
+            changePin = (newPin){
                 this.pin = newPin;
                 updateATM();
-
-
             }
 //return this;
+        }
+ /* When the page loads get the ATM accounts out of local storage */ 
+ let atm = new Atm(); 
+        atm.accounts = JSON.parse(localStorage.getItem("atm_accts")); 
+        /* if there are no accounts, make sure we initialize with an empty array */
+        if(atm.accounts === null){
+            atm.accounts = []; 
+        
         }
 
         function updateATM(){ 
