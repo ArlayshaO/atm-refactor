@@ -3,16 +3,25 @@
 
 <head>
     <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
 <body>
+    <div class="hero-image">
+        
+      </div>
+<br>
+<br>
+<br>
     <div id="start"> 
-        <label>Input your pin:</label>
+       
+        
+        <label>Input Your PIN:</label>
         <input id="pinput"></input>
         <button onclick="login()">Submit</button>
         <p id="account"></p>
 
-        <label>New account:</label>
+        <label>New Account:</label>
         <input id="newpinput"></input>
         <button onclick="newAccount()">Submit</button>
     </div>
@@ -25,19 +34,21 @@
 
         <button onclick="displayDeposit()">Deposit</button>
 <!---added change pin button//-->
-        <button onclick="displayChangePin()">Change Pin</button>
+        <button onclick="displayChangePin()">Change PIN</button>
        
         <button onclick="returnToMenu()">Logout</button>
-
+      
     </div>
 
     <script>
+          alert ("WELCOME! Please Have your PIN number available to access your account.");
         /* When the page loads get the ATM accounts out of local storage */ 
         let atm = new Atm(); 
         atm.accounts = JSON.parse(localStorage.getItem("atm_accts")); 
         /* if there are no accounts, make sure we initialize with an empty array */
         if(atm.accounts === null){
             atm.accounts = []; 
+        
         }
 
         /*----------- the code to manipute data/ logic goes here --------*/ 

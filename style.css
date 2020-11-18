@@ -1,3 +1,17 @@
+body, html {
+    height: 100%;
+}
+
+.hero-image {
+  background-image: url("BAsic ATM.png");
+  height: 50%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+
 button {
     background-color: rgb(94, 34, 172); 
     border: rgb(185, 17, 129);
@@ -6,7 +20,7 @@ button {
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
+    font-size: 20px;
     margin: 4px 2px;
     cursor: pointer;
     -webkit-transition-duration: 0.4s; 
@@ -14,3 +28,9 @@ button {
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
   }
 
+  
+
+  label {
+    font-size: 20px;
+  }
+  
